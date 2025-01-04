@@ -1,5 +1,5 @@
 import { auth, signIn } from '@/lib/auth';
-import { query } from '@/lib/db';
+import prisma, { query } from '@/lib/db';
 import { Button } from '@/components/ui/button';
 import GithubLogin from './github-login';
 import KakaoLogin from './kakao-login';
@@ -14,7 +14,8 @@ export default async function Login() {
   const session = await auth();
   console.log('🚀 login - session:', session);
 
-  const users = await query<User>('select * from User');
+  // const users = await query<User>('select * from User');
+  const users = await prisma.user.findMany();
 
   const googleLogin = async (formData: FormData) => {
     'use server';
@@ -33,7 +34,9 @@ export default async function Login() {
       <h1 className='text-2xl mb-3 text-center'>Login</h1>
       <ul className='text-green-500'>
         {users.map((user) => (
-          <li key={user.id}>{user.nickname}</li>
+          <li key={user.id}>
+            {user.id}. {user.nickname}
+          </li>
         ))}
       </ul>
       <form action={googleLogin}>
