@@ -29,6 +29,7 @@
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "i18next": "^24.2.0",
     "lucide-react": "^0.468.0",
     "mysql2": "^3.11.5",
     "next": "14.2.20",
@@ -38,7 +39,8 @@
     "react-hook-form": "^7.54.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.1"
+    "zod": "^3.24.1",
+    "zod-i18n-map": "^2.27.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.4",

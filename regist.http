@@ -1,0 +1,30 @@
+@host=http://localhost:3000
+
+### regist
+POST {{host}}/api/regist
+Content-Type: application/json
+
+{
+  "nickname": "sampler2",
+  "email": "sampler2@gmail.com",
+  "passwd": "password123"
+}
+
+### regist exists
+POST {{host}}/api/regist
+Content-Type: application/json
+
+{
+  "nickname": "sampler1",
+  "email": "indiflex.sico@gmail.com",
+  "passwd": "password123"
+}
+
+### regist
+POST {{host}}/api/regist
+Content-Type: application/json
+
+{
+  "email": "sampler@gmail",
+  "passwd": "password123"
+}
