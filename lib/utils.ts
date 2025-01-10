@@ -1,4 +1,4 @@
-import { hash } from 'bcrypt';
+// import { hash } from 'bcrypt';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { z } from '@/lib/i18n-zod';
@@ -29,11 +29,4 @@ export function parseZodErrorMessage(error: z.ZodError) {
   console.log('🚀  err:', err);
   // return `${err.message}(${err.path})`;
   return err.message;
-}
-
-export async function hashPassword(passwd: string) {
-  return hash(passwd, 10);
-  // const hashedPassword = await hash(passwd, 10);
-  // console.log('🚀  hashedPassword:', hashedPassword);
-  // return hashedPassword;
 }

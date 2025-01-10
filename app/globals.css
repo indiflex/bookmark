@@ -10,6 +10,9 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .fjb {
+    @apply flex justify-between;
+  }
 }
 
 @layer base {
@@ -75,4 +78,14 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  /* a {
+    @apply text-blue-900 hover:text-blue-800 visited:text-purple-600;
+  }
+  a:hover {
+    @apply text-blue-500 underline underline-offset-4;
+  }
+  a:active {
+    @apply text-red-500 animate-ping;
+  } */
 }

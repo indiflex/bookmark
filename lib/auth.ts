@@ -11,9 +11,7 @@ export const {
   signOut,
 } = NextAuth({
   providers: [Google, Github, Naver, Kakao],
-  pages: {
-    signIn: `/login`,
-  },
+
   callbacks: {
     async signIn({ account, profile }) {
       console.log('🚀  account:', account);
@@ -22,12 +20,21 @@ export const {
       return true;
     },
 
+    // async jwt({ token, user }) {},
+
     async session({ session, user }) {
-      console.log('🚀  session:', session);
-      console.log('🚀  user:', user);
+      console.log('🚀 auth.session.session:', session);
+      console.log('🚀 auth.session.user:', user);
       // session.user = user;
       return session;
     },
   },
   trustHost: true,
+  pages: {
+    signIn: `/login`,
+  },
+  session: {
+    strategy: 'jwt',
+    maxAge: 60 * 5, // 5 min
+  },
 });
