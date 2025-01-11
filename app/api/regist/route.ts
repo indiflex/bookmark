@@ -1,11 +1,8 @@
+import { hashPassword } from '@/actions/sign';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/db';
 import { z } from '@/lib/i18n-zod';
-import {
-  hashPassword,
-  parseZodErrorMessage,
-  toErrorMessage,
-} from '@/lib/utils';
+import { parseZodErrorMessage, toErrorMessage } from '@/lib/utils';
 
 export async function POST(req: Request) {
   try {
