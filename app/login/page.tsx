@@ -3,6 +3,7 @@ import { auth, signIn } from '@/lib/auth';
 import prisma, { query } from '@/lib/db';
 import PassButton from '@/components/pass-button';
 import { Button } from '@/components/ui/button';
+import CredentialLogin from './credential-login';
 import GithubLogin from './github-login';
 import KakaoLogin from './kakao-login';
 
@@ -49,7 +50,9 @@ export default async function Login({ searchParams: { callbackUrl } }: Props) {
         ))}
       </ul>
       <div className='w-64 mx-auto'>
-        <form action={googleLogin} className='mb-3'>
+        <CredentialLogin />
+
+        <form action={googleLogin} className='my-3'>
           <input type='hidden' name='service' value='google' />
           <ul className='space-y-3'>
             <li>

@@ -1,10 +1,15 @@
 import { PlusIcon, Settings } from 'lucide-react';
+import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import prisma from '@/lib/db';
 import Book from '@/components/Book';
 
 export default async function Home() {
   const session = await auth();
+
+  if (!session?.user?.email) {
+    redirect('/login');
+  }
 
   const books = await prisma.book.findMany();
   console.log('🚀  books:', books);
